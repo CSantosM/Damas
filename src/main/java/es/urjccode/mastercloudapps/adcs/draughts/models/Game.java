@@ -37,11 +37,10 @@ public class Game {
 		return null;
 	}
 
-	public Error move(Coordinate origin, Coordinate target) {
+	public void move(Coordinate origin, Coordinate target) {
 		assert origin != null && target != null;
 		this.board.move(origin, target);
 		this.turn.change();
-		return null;
 	}
 
 	public Color getColor(Coordinate coordinate) {

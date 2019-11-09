@@ -46,7 +46,7 @@ public class GameTest {
             System.out.println(game);
             error = game.isValidMovement(coordinates[i][0], coordinates[i][1]);
             if(error == null){
-                error = game.move(coordinates[i][0], coordinates[i][1]);
+                game.move(coordinates[i][0], coordinates[i][1]);
             }
         }
         return error;
