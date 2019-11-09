@@ -92,7 +92,7 @@ public class Game {
 	}
 
 	public boolean isBlocked() {
-		return this.board.getPieces(this.turn.getColor()).isEmpty();
+		return this.getPieces(this.turn.getColor()).isEmpty();
 	}
 
 	public int getDimension() {
