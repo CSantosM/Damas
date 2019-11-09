@@ -44,7 +44,10 @@ public class GameTest {
         for (int i = 0; i < coordinates.length; i++) {
             assertNull(error);
             System.out.println(game);
-            error = game.move(coordinates[i][0], coordinates[i][1]);
+            error = game.isValidMovement(coordinates[i][0], coordinates[i][1]);
+            if(error == null){
+                error = game.move(coordinates[i][0], coordinates[i][1]);
+            }
         }
         return error;
     }

@@ -98,4 +98,32 @@ class Board {
         return string + row + "\n";
     }
 
+    Error isValidMovement(Coordinate origin, Coordinate target, Color turnColor){
+        assert origin != null && target != null;
+        if (!origin.isValid() || !target.isValid()) {
+			return Error.OUT_COORDINATE;
+        }
+        if (this.isEmpty(origin)) {
+			return Error.EMPTY_ORIGIN;
+        }
+        if (this.getColor(origin) != turnColor) {
+			return Error.OPPOSITE_PIECE;
+        }
+        Error errorPiece = this.getPiece(origin).canMove(origin,target);
+        if(errorPiece != null){
+            return errorPiece;
+        }
+        if (!this.isEmpty(target)) {
+			return Error.NOT_EMPTY_TARGET;
+        }
+        if (origin.diagonalDistance(target) == 2) {
+			Coordinate between = origin.betweenDiagonal(target);
+			if (this.getPiece(between) == null) {
+				return Error.EATING_EMPTY;
+			}
+			this.remove(between);
+		}
+        return null;
+    }
+
 }
