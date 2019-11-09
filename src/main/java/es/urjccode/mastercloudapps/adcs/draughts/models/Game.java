@@ -61,7 +61,7 @@ public class Game {
 	}
 
 	public boolean isBlocked() {
-		return this.getPieces(this.turn.getColor()).isEmpty();
+		return this.getPieces(this.getColor()).isEmpty();
 	}
 
 	public int getDimension() {
@@ -73,7 +73,7 @@ public class Game {
 	}
 
 	public Error isValidMovement(Coordinate origin, Coordinate target){
-		return this.board.isValidMovement(origin, target, this.turn.getColor());
+		return this.board.isValidMovement(origin, target, this.getColor());
 	}
 
 }
