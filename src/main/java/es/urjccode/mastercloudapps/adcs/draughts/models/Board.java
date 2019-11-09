@@ -6,7 +6,6 @@ import java.util.List;
 class Board {
 
     private static final int DIMENSION = 8;
-
     private Square[][] squares;
 
     Board() {
@@ -76,7 +75,7 @@ class Board {
 
     private String toStringHorizontalNumbers(){
         String string = " ";
-        for (int j = 0; j < Board.DIMENSION; j++) {
+        for (int j = 0; j < this.getDimension(); j++) {
             string += j;
         }
         return string + "\n";
