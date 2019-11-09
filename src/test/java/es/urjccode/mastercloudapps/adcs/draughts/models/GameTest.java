@@ -1,6 +1,7 @@
 package es.urjccode.mastercloudapps.adcs.draughts.models;
 
 import static org.junit.Assert.assertNull;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -145,6 +146,14 @@ public class GameTest {
         assertEquals(Error.BAD_DISTANCE, this.advance(new Coordinate[][] { 
             { new Coordinate(5, 0), new Coordinate(2, 3) },
         })); 
+    }
+
+    @Test
+    public void testGivenGameWhenGetPiecesWithColorThenOk() {
+        List<Piece> blackPieces = game.getPieces(Color.BLACK);
+        for(int i = 0; i < blackPieces.size(); i++){
+            assertEquals(blackPieces.get(i).getColor(), Color.BLACK);
+        }
     }
 
 }
