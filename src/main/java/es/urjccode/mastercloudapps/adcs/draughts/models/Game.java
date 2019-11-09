@@ -1,9 +1,10 @@
 package es.urjccode.mastercloudapps.adcs.draughts.models;
 
+import java.util.List;
+
 public class Game {
 
 	private Board board;
-
 	private Turn turn;
 
 	public Game() {
@@ -96,6 +97,10 @@ public class Game {
 
 	public int getDimension() {
 		return this.board.getDimension();
+	}
+
+	public List<Piece> getPieces(Color color){
+		return this.board.getPieces(color);
 	}
 
 }
