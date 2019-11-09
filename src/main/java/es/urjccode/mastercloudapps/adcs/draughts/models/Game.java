@@ -24,14 +24,11 @@ public class Game {
 	private Piece getInitialPiece(Coordinate coordinate) {
 		if (coordinate.isBlack()) {
 			final int row = coordinate.getRow();
-			Color color = null;
 			if (row <= 2) {
-				color = Color.BLACK;
-			} else if (row >= 5) {
-				color = Color.WHITE;
+				return new Pawn(Color.BLACK);
 			}
-			if (color != null) {
-				return new Pawn(color);
+			if(row >= 5) {
+				return new Pawn(Color.WHITE);
 			}
 		}
 		return null;
