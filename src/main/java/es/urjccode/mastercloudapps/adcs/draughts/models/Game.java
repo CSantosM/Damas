@@ -10,12 +10,12 @@ public class Game {
 	public Game() {
 		this.turn = new Turn();
 		this.board = new Board();
-		for (int i = 0; i < this.board.getDimension(); i++) {
-			for (int j = 0; j < this.board.getDimension(); j++) {
+		for (int i = 0; i < this.getBoard().getDimension(); i++) {
+			for (int j = 0; j < this.getBoard().getDimension(); j++) {
 				Coordinate coordinate = new Coordinate(i, j);
 				Piece piece = this.getInitialPiece(coordinate);
 				if (piece != null) {
-					this.board.put(coordinate, piece);
+					this.getBoard().put(coordinate, piece);
 				}
 			}
 		}
@@ -27,7 +27,7 @@ public class Game {
 			if (row <= 2) {
 				return new Pawn(Color.BLACK);
 			}
-			if(row >= 5) {
+			if (row >= 5) {
 				return new Pawn(Color.WHITE);
 			}
 		}
@@ -36,17 +36,17 @@ public class Game {
 
 	public void move(Coordinate origin, Coordinate target) {
 		assert origin != null && target != null;
-		this.board.move(origin, target);
+		this.getBoard().move(origin, target);
 		this.turn.change();
 	}
 
 	public Color getColor(Coordinate coordinate) {
-		return this.board.getColor(coordinate);
+		return this.getBoard().getColor(coordinate);
 	}
 
 	@Override
 	public String toString() {
-		return this.board + "\n" + this.turn;
+		return this.getBoard() + "\n" + this.turn;
 	}
 
 	public Color getColor() {
@@ -54,7 +54,7 @@ public class Game {
 	}
 
 	public Piece getPiece(Coordinate coordinate) {
-		return this.board.getPiece(coordinate);
+		return this.getBoard().getPiece(coordinate);
 	}
 
 	public boolean isBlocked() {
@@ -62,15 +62,15 @@ public class Game {
 	}
 
 	public int getDimension() {
-		return this.board.getDimension();
+		return this.getBoard().getDimension();
 	}
 
-	public List<Piece> getPieces(Color color){
-		return this.board.getPieces(color);
+	public List<Piece> getPieces(Color color) {
+		return this.getBoard().getPieces(color);
 	}
 
-	public Error isValidMovement(Coordinate origin, Coordinate target){
-		return this.board.isValidMovement(origin, target, this.getColor());
+	public Error isValidMovement(Coordinate origin, Coordinate target) {
+		return this.getBoard().isValidMovement(origin, target, this.getColor());
 	}
 
 	public Board getBoard() {
