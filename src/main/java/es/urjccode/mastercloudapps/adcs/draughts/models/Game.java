@@ -73,4 +73,7 @@ public class Game {
 		return this.board.isValidMovement(origin, target, this.getColor());
 	}
 
+	public Board getBoard() {
+		return this.board;
+	}
 }
